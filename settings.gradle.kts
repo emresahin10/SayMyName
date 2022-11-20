@@ -13,4 +13,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Say My Name"
-include ':app'
+include (":app")
+enableFeaturePreview("VERSION_CATALOGS")
