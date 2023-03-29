@@ -1,34 +1,43 @@
+import java.text.SimpleDateFormat
+import java.util.Date
+import kotlin.math.pow
+
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.detekt)
-    alias(libs.plugins.hilt)
-    alias(libs.plugins.junit)
-    alias(libs.plugins.kotlin)
-    alias(libs.plugins.kotlinKapt)
-    alias(libs.plugins.kotlinParcelize)
-    alias(libs.plugins.kotlinSerialization)
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.ktLint)
+    id("saymyname.android.application")
+    id("saymyname.android.application.compose")
+    id("saymyname.android.hilt")
+    id("jacoco")
+
 }
+fun Int.pow(n: Int): Int = this.toFloat().pow(n).toInt()
 
 android {
-    compileSdk = 33
+    namespace  = "com.emresahin.saymyname"
 
     defaultConfig {
         applicationId = "com.emresahin.saymyname"
-        minSdk = 23
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        val major = 1
+        val minor = 0
+        val patch = 0
+        val build = 0
+        versionCode = major * 10.pow(6) + minor * 10.pow(4) + patch * 10.pow(2) + build
+        versionName = "$major.$minor.$patch"
+
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        buildConfigField(
+            "String",
+            "BUILD_TIME",
+            "\"${SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").format(Date())}\""
+        )
     }
 
     buildTypes {
-        release {
+        debug {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -39,7 +48,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -50,34 +59,37 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
-    }
+
     buildFeatures {
         compose =  true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
-    }
-    /*composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
-    }*/
+
+
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
 }
-
 dependencies {
-    implementation(libs.bundles.production)
-    kapt(libs.hiltCompiler)
-    ksp(libs.roomCompiler)
 
-    debugImplementation(libs.bundles.debug)
+    implementation(project(":core:common"))
+    implementation(project(":core:data"))
+    implementation(project(":core:domain"))
+    implementation(project(":core:model"))
+    implementation(project(":core:ui"))
+    implementation(project(":feature:characters"))
 
-    testImplementation(libs.bundles.test)
-    testRuntimeOnly(libs.testJunitEngine)
-    androidTestImplementation(libs.bundles.testAndroid)
-    kaptAndroidTest(libs.testAndroidHiltCompiler)
+    implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtimeCompose)
+    implementation(libs.androidx.compose.runtime.tracing)
+    implementation(libs.androidx.compose.material3.windowSizeClass)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.window.manager)
+    implementation(libs.coil.kt)
 }
