@@ -1,11 +1,12 @@
 package com.emresahin.saymyname.model
 
 data class Character(
-    val id: String,
+    val charId: String,
     val name: String,
     val birthday: String,
-    val nickname: String,
-    val status: Boolean,
-    val category: String,
     val img: String,
+    val status: String,
+    val nickname: String,
+    val portrayed: String,
+    val category: String,
 )

@@ -2,7 +2,6 @@ pluginManagement {
     includeBuild("build-logic")
     repositories {
         google()
-        jcenter()
         mavenCentral()
         gradlePluginPortal()
         maven("https://jitpack.io")
@@ -18,13 +17,12 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
-        jcenter()
         mavenCentral()
         maven("https://jitpack.io")
     }
 }
 rootProject.name = "Say My Name"
-include (":app")
+include(":app")
 include(":core:common")
 include(":core:data")
 include(":core:domain")

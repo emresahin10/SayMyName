@@ -21,7 +21,7 @@ class CharactersViewModel @Inject constructor(
     val viewState: StateFlow<CharactersUiState> = mViewState.asStateFlow()
 
     init {
-        //fetchCharacters()
+        fetchCharacters()
     }
 
     private fun fetchCharacters() = viewModelScope.launch {

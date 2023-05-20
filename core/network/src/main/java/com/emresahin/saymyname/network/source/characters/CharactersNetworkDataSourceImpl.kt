@@ -1,8 +1,8 @@
 package com.emresahin.saymyname.network.source.characters
 
-import com.emresahin.saymyname.model.Character
 import com.emresahin.saymyname.Result
 import com.emresahin.saymyname.mapData
+import com.emresahin.saymyname.model.Character
 import com.emresahin.saymyname.network.SayMyNameApiCall
 import com.emresahin.saymyname.network.api.SayMyNameApi
 import com.emresahin.saymyname.network.model.NetworkCharacter
@@ -17,8 +17,12 @@ class CharactersNetworkDataSourceImpl @Inject constructor(
 ) : CharactersNetworkDataSource {
 
     override suspend fun getCharacters(): Result<List<Character>> {
-        return sayMyNameApiCall { sayMyNameApi.getCharacters() }.mapData {
-            it?.map(NetworkCharacter::asExternal).orEmpty()
-        }
+        return sayMyNameApiCall { sayMyNameApi.getCharacters() }
+            .mapData { it?.map(NetworkCharacter::asExternal).orEmpty() }
+    }
+
+    override suspend fun getCharacter(charId: String): Result<Character> {
+        return sayMyNameApiCall { sayMyNameApi.getCharacter(charId) }
+            .mapData { it!!.asExternal() }
     }
 }

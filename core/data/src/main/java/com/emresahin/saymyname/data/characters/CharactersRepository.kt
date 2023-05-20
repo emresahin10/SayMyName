@@ -5,4 +5,5 @@ import com.emresahin.saymyname.Result
 
 interface CharactersRepository {
     suspend fun getCharacters(): Result<List<Character>>
+    suspend fun getCharacter(charId: String): Result<Character>
 }

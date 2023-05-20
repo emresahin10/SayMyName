@@ -2,7 +2,6 @@ package com.emresahin.saymyname.network.di
 
 import android.content.Context
 import coil.ImageLoader
-import coil.util.DebugLogger
 import com.emresahin.saymyname.network.api.SayMyNameApi
 import com.emresahin.saymyname.network.interceptor.RequestInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
@@ -11,7 +10,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import it.czerwinski.android.hilt.BuildConfig
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import okhttp3.Call
@@ -30,7 +28,6 @@ object CoreNetworkModule {
     @Provides
     @Singleton
     internal fun provideOkHttpClient(
-        @ApplicationContext context: Context,
         requestInterceptor: RequestInterceptor,
     ): OkHttpClient {
         val okHttpBuilder = OkHttpClient.Builder()
@@ -39,7 +36,6 @@ object CoreNetworkModule {
             .writeTimeout(30, TimeUnit.SECONDS)
             .addInterceptor(requestInterceptor)
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-
         return okHttpBuilder.build()
     }
 
@@ -60,11 +56,6 @@ object CoreNetworkModule {
     ): ImageLoader = ImageLoader.Builder(application)
         .callFactory(okHttpCallFactory)
         .respectCacheHeaders(false)
-        .apply {
-            if (BuildConfig.DEBUG) {
-                logger(DebugLogger())
-            }
-        }
         .build()
 
     @ExperimentalSerializationApi
@@ -75,7 +66,7 @@ object CoreNetworkModule {
         json: Json,
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://www.saymyname.com") // replace real baseurl
+            .baseUrl("https://lionfish-app-zk8sh.ondigitalocean.app/")
             .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
             .client(okHttpClient)
             .build()
