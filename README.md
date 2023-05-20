@@ -7,12 +7,11 @@ WORK IN PROGRESS
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.8.0-purple.svg?logo=kotlin)](http://kotlinlang.org)
 [![Gradle](https://img.shields.io/badge/gradle-8.0-blue.svg?)](https://lv.binarybabel.org/catalog/gradle/latest)
 
- <img src="art/ss1.png" width="30%"/>
- <img src="art/ss2.png" width="30%"/>
+ <img src="art/ss1.png" width="30%"/> <img src="art/ss2.png" width="30%"/>
 
 ## Api
-Developed by me using kotlin ktor framework. Used database as mongodb.
-Published on digital ocean via docker image. If you interested, you can check out with link.
+Developed by me using kotlin ktor framework. Used mongodb as database.
+Published on digital ocean via docker image. If you interested in you can check out with link.
 * [SayMyNameApi](https://github.com/emresahin10/ktor-mongodb-saymyname) 
 
 ## Features
