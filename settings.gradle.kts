@@ -29,4 +29,7 @@ include(":core:domain")
 include(":core:model")
 include(":core:network")
 include(":core:ui")
+include(":core:designsystem")
+
 include(":feature:characters")
+include(":feature:character-detail")

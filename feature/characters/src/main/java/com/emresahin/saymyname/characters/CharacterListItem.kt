@@ -1,6 +1,7 @@
 package com.emresahin.saymyname.characters
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -22,9 +23,12 @@ import com.emresahin.saymyname.model.Character
 fun CharacterListItem(
     modifier: Modifier = Modifier,
     character: Character,
+    onClick: () -> Unit,
 ) {
     Box(
-        modifier = modifier.clip(RoundedCornerShape(16.dp)),
+        modifier = modifier
+            .clip(RoundedCornerShape(16.dp))
+            .clickable { onClick() },
         contentAlignment = Alignment.BottomCenter,
     ) {
         AsyncImage(
@@ -35,7 +39,7 @@ fun CharacterListItem(
             model = character.img,
             contentDescription = null
         )
-        if (character.img.isEmpty().not()) {
+        if (character.img.isNotEmpty()) {
             Text(
                 modifier = Modifier
                     .fillMaxWidth()

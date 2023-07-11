@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun CharactersScreen(
     state: CharactersUiState,
+    onNavigateToCharacterDetail: (characterId: String) -> Unit,
     onNavigateBack: () -> Unit,
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
@@ -28,9 +29,11 @@ fun CharactersScreen(
             contentPadding = PaddingValues(16.dp)
         ) {
             items(state.characters) { character ->
-                CharacterListItem(character = character)
+                CharacterListItem(
+                    character = character,
+                    onClick = { onNavigateToCharacterDetail(character.charId) }
+                )
             }
         }
     }
-
 }

@@ -18,6 +18,8 @@ plugins {
     alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.hilt) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.kotlinAndroid) apply false
     id("com.github.ben-manes.versions") version "0.42.0"
 }
 

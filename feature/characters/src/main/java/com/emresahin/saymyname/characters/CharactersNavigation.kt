@@ -12,15 +12,16 @@ const val charactersBaseRoute = "characters"
 
 fun NavGraphBuilder.charactersScreen(
     onNavigateBack: () -> Unit,
+    onNavigateToCharacterDetail: (characterId: String) -> Unit,
 ) = composable(
     route = charactersBaseRoute,
-
-    ) {
+) {
     val viewModel: CharactersViewModel = hiltViewModel()
     val state by viewModel.viewState.collectAsState()
     CharactersScreen(
         state = state,
         onNavigateBack = onNavigateBack,
+        onNavigateToCharacterDetail = onNavigateToCharacterDetail,
     )
 }
 

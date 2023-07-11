@@ -17,3 +17,9 @@ local.properties
 versions.properties
 
 /build-logic/convention/build
+/.idea/render.experimental.xml
+/.idea/deploymentTargetDropDown.xml
+/.idea/gradle.xml
+
+/.gitignore/
+

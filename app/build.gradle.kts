@@ -66,7 +66,7 @@ android {
     }
 
 
-    packagingOptions {
+    packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
@@ -79,7 +79,9 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:model"))
     implementation(project(":core:ui"))
+    implementation(project(":core:designsystem"))
     implementation(project(":feature:characters"))
+    implementation(project(":feature:character-detail"))
 
     implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.core.splashscreen)

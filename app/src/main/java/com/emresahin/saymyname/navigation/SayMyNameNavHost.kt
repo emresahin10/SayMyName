@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.emresahin.saymyname.character_detail.characterDetailScreen
+import com.emresahin.saymyname.character_detail.navigateToCharacterDetailScreen
 import com.emresahin.saymyname.characters.charactersBaseRoute
 import com.emresahin.saymyname.characters.charactersScreen
 
@@ -22,6 +24,10 @@ fun SayMyNameHost(
         modifier = modifier,
         route = rootGraphRoute
     ) {
-        charactersScreen(onNavigateBack = onBackClick)
+        charactersScreen(
+            onNavigateBack = onBackClick,
+            onNavigateToCharacterDetail = navController::navigateToCharacterDetailScreen
+        )
+        characterDetailScreen(onNavigateBack = onBackClick)
     }
 }
