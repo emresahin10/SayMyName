@@ -7,17 +7,27 @@ WORK IN PROGRESS
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.8.0-purple.svg?logo=kotlin)](http://kotlinlang.org)
 [![Gradle](https://img.shields.io/badge/gradle-8.0-blue.svg?)](https://lv.binarybabel.org/catalog/gradle/latest)
 
- <img src="art/ss1.png" width="30%"/> <img src="art/ss2.png" width="30%"/>
+ <img src="art/ss1.png" width="30%"/> <img src="art/ss2.png" width="30%"/> <img src="art/ss3.png" width="30%"/>
 
 ## Api
 Developed by me using kotlin ktor framework. Used mongodb as database.
 Published on digital ocean via docker image. If you interested in you can check out with link.
 * [SayMyNameApi](https://github.com/emresahin10/ktor-mongodb-saymyname) 
 
+## TODO
+
+- [x] Characters
+- [x] Character Detail
+- [x] Quotes
+- [ ] Character Detail better design
+- [ ] Add bottom nav bar
+- [ ] Quote Detail
+- [ ] Random Quote
+
 ## Features
 - Listing characters
-- Character detail (🧑🏽‍💻)
-- Listing quotes (🧑🏽‍💻)
+- Character detail (w8 Better design)
+- Listing quotes
 - Quote detail (🧑🏽‍💻)
 - Random quotes (🧑🏽‍💻)
 
@@ -53,6 +63,6 @@ This project uses many of the popular libraries, plugins and tools of the androi
 - [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) - Library Support for coroutines,provides runBlocking coroutine builder used in tests.
 
 ## Environment Setup
-- Android Studio Giraffe | 2022.3.1 Canary 11
+- Android Studio Hedgehog | 2022.3.1 Canary 5
 - Android Studio's Gradle JDK version 17 (Azul coretta aarch64)
  
