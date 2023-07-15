@@ -22,16 +22,16 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.lifecycle.runtimeCompose)
     implementation(libs.androidx.window.manager)
+    implementation(libs.androidx.compose.material3.windowSizeClass)
+    implementation(libs.androidx.compose.runtime.livedata)
 
     api(libs.androidx.compose.foundation)
     api(libs.androidx.compose.foundation.layout)
     api(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.material3.windowSizeClass)
+    api(libs.androidx.compose.ui.tooling.preview)
     api(libs.androidx.compose.ui.util)
     api(libs.androidx.compose.runtime)
-    implementation(libs.androidx.compose.runtime.livedata)
     api(libs.androidx.tracing.ktx)
-
     api(libs.kotlinx.collections)
 
 }

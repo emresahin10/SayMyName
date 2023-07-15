@@ -8,6 +8,11 @@
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 /.idea/inspectionProfiles
+/.idea/render.experimental.xml
+/.idea/deploymentTargetDropDown.xml
+/.idea/gradle.xml
+/.idea/misc.xml
+/.idea
 .DS_Store
 /build
 /captures
@@ -17,9 +22,6 @@ local.properties
 versions.properties
 
 /build-logic/convention/build
-/.idea/render.experimental.xml
-/.idea/deploymentTargetDropDown.xml
-/.idea/gradle.xml
 
 /.gitignore/
 

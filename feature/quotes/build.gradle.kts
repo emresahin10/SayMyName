@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.emresahin.saymyname.feature.character_detail"
+    namespace = "com.emresahin.saymyname.feature.quotes"
 }
 
 dependencies {

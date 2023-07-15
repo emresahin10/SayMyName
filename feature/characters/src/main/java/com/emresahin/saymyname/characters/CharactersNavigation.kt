@@ -12,6 +12,7 @@ const val charactersBaseRoute = "characters"
 
 fun NavGraphBuilder.charactersScreen(
     onNavigateBack: () -> Unit,
+    onNavigateToQuotes: () -> Unit,
     onNavigateToCharacterDetail: (characterId: String) -> Unit,
 ) = composable(
     route = charactersBaseRoute,
@@ -21,6 +22,7 @@ fun NavGraphBuilder.charactersScreen(
     CharactersScreen(
         state = state,
         onNavigateBack = onNavigateBack,
+        onNavigateToQuotes = onNavigateToQuotes,
         onNavigateToCharacterDetail = onNavigateToCharacterDetail,
     )
 }

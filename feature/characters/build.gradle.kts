@@ -8,7 +8,7 @@ android {
     namespace = "com.emresahin.saymyname.feature.characters"
 }
 
-dependencies{
-    implementation(project(":core:network"))
-
+dependencies {
+    implementation(project(":core:data"))
+    implementation(project(":core:ui"))
 }

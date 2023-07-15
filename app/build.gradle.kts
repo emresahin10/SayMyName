@@ -82,6 +82,7 @@ dependencies {
     implementation(project(":core:designsystem"))
     implementation(project(":feature:characters"))
     implementation(project(":feature:character-detail"))
+    implementation(project(":feature:quotes"))
 
     implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.core.splashscreen)

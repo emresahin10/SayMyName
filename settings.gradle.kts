@@ -33,3 +33,4 @@ include(":core:designsystem")
 
 include(":feature:characters")
 include(":feature:character-detail")
+include(":feature:quotes")

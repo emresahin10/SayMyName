@@ -8,6 +8,8 @@ import com.emresahin.saymyname.character_detail.characterDetailScreen
 import com.emresahin.saymyname.character_detail.navigateToCharacterDetailScreen
 import com.emresahin.saymyname.characters.charactersBaseRoute
 import com.emresahin.saymyname.characters.charactersScreen
+import com.emresahin.saymyname.quotes.navigateToQuotesScreen
+import com.emresahin.saymyname.quotes.quotesScreen
 
 const val rootGraphRoute = "root"
 
@@ -26,8 +28,10 @@ fun SayMyNameHost(
     ) {
         charactersScreen(
             onNavigateBack = onBackClick,
+            onNavigateToQuotes = navController::navigateToQuotesScreen,
             onNavigateToCharacterDetail = navController::navigateToCharacterDetailScreen
         )
         characterDetailScreen(onNavigateBack = onBackClick)
+        quotesScreen(onNavigateBack = onBackClick, onNavigateToQuoteDetail = {})
     }
 }

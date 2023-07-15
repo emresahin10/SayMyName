@@ -1,5 +1,7 @@
 package com.emresahin.saymyname.ui.theme
 
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 
 internal val blue = Color(0xFFAA3BF1)
@@ -12,3 +14,12 @@ internal val yellow = Color(0xFFFFC107)
 internal val grey = Color(0xFF92989D)
 internal val greyLight = Color(0xFFC8D1F3)
 internal val greyMid = Color(0xFFECECEE)
+
+val gradientColors
+    @Composable get() = remember {
+        mutableListOf(
+            Color.Green,
+            Color.Yellow,
+            Color.Green
+        )
+    }
